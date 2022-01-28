@@ -31,6 +31,7 @@ fs.readFile("./www/index.html", "utf8", (err, data) => {
 if (err) {
     console.error(err)
     return 
+    process.exit(1)
 }
 
 console.log(data)
@@ -47,7 +48,7 @@ console.log(data)
 const server = http.createServer((req, res) => {
     res.statusCode = 200
     res.setHeader = ('Content-Type', 'text/html')
-    res.end('<h1>Hello, World!</h1>')
+    res.end(data)
 })
 
 
@@ -56,7 +57,7 @@ const server = http.createServer((req, res) => {
 // Put the exact message `Server listening on port ${port}` on the console log. 
 
 server.listen(port, () => {
-    console.log(`Server running at port ${port}`)
+    console.log(`Server listening on port ${port}`)
 })
 
 
